@@ -1,8 +1,11 @@
 package com.shillyshally.application;
 
 import com.shillyshally.application.dto.RestaurantResponse;
+import com.shillyshally.domain.Category;
 import com.shillyshally.domain.Restaurant;
 import com.shillyshally.domain.repository.RestaurantRepository;
+import java.util.List;
+import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -13,13 +16,20 @@ import org.springframework.transaction.annotation.Transactional;
 public class RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
-    private final RandomNumberGenerator randomNumberGenerator;
 
-    public RestaurantResponse getOne() {
-        long counts = restaurantRepository.count();
-        long randomNumber = randomNumberGenerator.create(counts);
-        Restaurant restaurant = restaurantRepository.findById(randomNumber)
-                .orElseThrow(() -> new IllegalArgumentException("존재하지 않는 음식점입니다."));
-        return new RestaurantResponse(restaurant.getName());
+    public List<RestaurantResponse> getRandom(Long size, String category) {
+        if (category.equals("all")) {
+            List<Restaurant> restaurants = restaurantRepository.findAll(size);
+            return getRestaurantsResponse(restaurants);
+        }
+        Category foundCategory = Category.from(category);
+        List<Restaurant> restaurants = restaurantRepository.findAllByCategory(foundCategory.name(), size);
+        return getRestaurantsResponse(restaurants);
+    }
+
+    private List<RestaurantResponse> getRestaurantsResponse(List<Restaurant> restaurants) {
+        return restaurants.stream()
+                .map(it -> new RestaurantResponse(it.getId(), it.getName()))
+                .collect(Collectors.toList());
     }
 }
