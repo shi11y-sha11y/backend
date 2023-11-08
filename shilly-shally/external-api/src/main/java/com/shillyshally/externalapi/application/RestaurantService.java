@@ -1,6 +1,5 @@
 package com.shillyshally.externalapi.application;
 
-import com.shillyshally.coredomain.restaurant.Category;
 import com.shillyshally.coredomain.restaurant.Restaurant;
 import com.shillyshally.coredomain.restaurant.repository.RestaurantRepository;
 import com.shillyshally.externalapi.application.dto.RestaurantResponse;
@@ -17,13 +16,13 @@ public class RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
 
-    public List<RestaurantResponse> getRandom(Long size, String category) {
-        if (category.equals("all")) {
-            List<Restaurant> restaurants = restaurantRepository.findAll(size);
+    public List<RestaurantResponse> getRandoms(Long size, Long categoryId) {
+        if (categoryId == null) {
+            List<Restaurant> restaurants = restaurantRepository.findRandoms(size);
             return getRestaurantsResponse(restaurants);
         }
-        Category foundCategory = Category.from(category);
-        List<Restaurant> restaurants = restaurantRepository.findAllByCategory(foundCategory.name(), size);
+
+        List<Restaurant> restaurants = restaurantRepository.findRandomsByCategoryId(categoryId, size);
         return getRestaurantsResponse(restaurants);
     }
 

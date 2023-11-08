@@ -8,9 +8,9 @@ import org.springframework.stereotype.Repository;
 
 public interface RestaurantRepository extends JpaRepository<Restaurant, Long> {
 
-    @Query(value = "SELECT * FROM Restaurant WHERE CATEGORY = :category ORDER BY RAND() LIMIT :size", nativeQuery = true)
-    List<Restaurant> findAllByCategory(String category, long size);
+    @Query(value = "SELECT * FROM Restaurant WHERE CATEGORY_ID = :categoryId ORDER BY RAND() LIMIT :size", nativeQuery = true)
+    List<Restaurant> findRandomsByCategoryId(long categoryId, long size);
 
     @Query(value = "SELECT * FROM Restaurant ORDER BY RAND() LIMIT :size", nativeQuery = true)
-    List<Restaurant> findAll(long size);
+    List<Restaurant> findRandoms(long size);
 }
