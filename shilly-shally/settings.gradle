@@ -1,4 +1,6 @@
 rootProject.name = 'shilly-shally'
+
 include 'core-domain'
 include 'external-api'
 include 'internal-api'
+include 'support'
