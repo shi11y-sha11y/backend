@@ -2,4 +2,5 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     runtimeOnly 'com.h2database:h2'
     implementation project(':core-domain')
+    testImplementation 'io.rest-assured:rest-assured:5.3.2'
 }
