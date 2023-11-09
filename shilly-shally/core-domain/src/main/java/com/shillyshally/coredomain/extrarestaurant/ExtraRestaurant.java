@@ -24,7 +24,7 @@ public class ExtraRestaurant {
 
     private boolean isRegistered;
 
-    public ExtraRestaurant(String name, boolean isRegistered) {
-        this(null, name, isRegistered);
+    public ExtraRestaurant(String name) {
+        this(null, name, false);
     }
 }

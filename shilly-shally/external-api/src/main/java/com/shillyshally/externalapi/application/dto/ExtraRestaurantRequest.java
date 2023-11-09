@@ -5,6 +5,6 @@ import com.shillyshally.coredomain.extrarestaurant.ExtraRestaurant;
 public record ExtraRestaurantRequest(String name) {
 
     public ExtraRestaurant toEntity() {
-        return new ExtraRestaurant(name, false);
+        return new ExtraRestaurant(name);
     }
 }
