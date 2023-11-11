@@ -19,7 +19,7 @@ public class ExtraRestaurantAcceptanceTest extends AcceptanceTest {
     }
 
     @Test
-    public void 유저는_추가_요청된_식당_리스트들을_조회할_수_있다() {
+    void 유저는_추가_요청된_식당_리스트들을_조회할_수_있다() {
         식당_추가_요청("알촌1");
         식당_추가_요청("알촌2");
         식당_추가_요청("알촌3");

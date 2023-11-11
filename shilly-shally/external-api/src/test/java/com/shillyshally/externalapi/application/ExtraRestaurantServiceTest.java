@@ -25,7 +25,7 @@ class ExtraRestaurantServiceTest {
     private ExtraRestaurantRepository extraRestaurantRepository;
 
     @Test
-    public void 식당을_추가_등록_요청할_수_있다() {
+    void 식당을_추가_등록_요청할_수_있다() {
         extraRestaurantService.create(new ExtraRestaurantRequest("알촌"));
 
         List<ExtraRestaurant> extraRestaurants = extraRestaurantRepository.findAll();
@@ -37,7 +37,7 @@ class ExtraRestaurantServiceTest {
     }
 
     @Test
-    public void 페이지별로_식당을_최신순으로_조회할_수_있다() {
+    void 페이지별로_식당을_최신순으로_조회할_수_있다() {
         ExtraRestaurant 알촌1 = extraRestaurantRepository.save(new ExtraRestaurant("알촌1"));
         ExtraRestaurant 알촌2 = extraRestaurantRepository.save(new ExtraRestaurant("알촌2"));
         extraRestaurantRepository.save(new ExtraRestaurant("알촌3"));

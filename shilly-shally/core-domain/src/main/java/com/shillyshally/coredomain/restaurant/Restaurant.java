@@ -38,4 +38,9 @@ public class Restaurant {
     private Double longitude;
 
     private Double latitude;
+
+    public Restaurant(String name, Long categoryId, String categoryDetail, String phone, String url,
+                      String imageUrl, Double longitude, Double latitude) {
+        this(null, name, categoryId, categoryDetail, phone, url, imageUrl, latitude, longitude);
+    }
 }
