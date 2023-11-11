@@ -28,7 +28,7 @@ public class RestaurantService {
 
     private List<RestaurantResponse> getRestaurantsResponse(List<Restaurant> restaurants) {
         return restaurants.stream()
-                .map(it -> new RestaurantResponse(it.getId(), it.getName()))
+                .map(RestaurantResponse::from)
                 .collect(Collectors.toList());
     }
 }

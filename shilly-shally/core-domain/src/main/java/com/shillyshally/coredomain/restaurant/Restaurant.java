@@ -1,8 +1,6 @@
 package com.shillyshally.coredomain.restaurant;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -27,11 +25,7 @@ public class Restaurant {
 
     private Long categoryId;
 
-    private String categoryDetail;
-
-    private String phone;
-
-    private String url;
+    private String informationUrl;
 
     private String imageUrl;
 
@@ -39,8 +33,8 @@ public class Restaurant {
 
     private Double latitude;
 
-    public Restaurant(String name, Long categoryId, String categoryDetail, String phone, String url,
+    public Restaurant(String name, Long categoryId, String informationUrl,
                       String imageUrl, Double longitude, Double latitude) {
-        this(null, name, categoryId, categoryDetail, phone, url, imageUrl, latitude, longitude);
+        this(null, name, categoryId, informationUrl, imageUrl, latitude, longitude);
     }
 }

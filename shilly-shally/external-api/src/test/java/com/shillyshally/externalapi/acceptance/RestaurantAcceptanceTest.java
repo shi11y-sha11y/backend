@@ -1,6 +1,7 @@
 package com.shillyshally.externalapi.acceptance;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 import com.shillyshally.coredomain.category.Category;
 import com.shillyshally.coredomain.category.repository.CategoryRepository;
@@ -83,20 +84,21 @@ public class RestaurantAcceptanceTest extends AcceptanceTest {
                 .jsonPath()
                 .getList(".", RestaurantResponse.class);
 
-        Set<String> responseCategoryNames = response.stream()
-                .map(RestaurantResponse::name)
+        Set<Long> responseCategoryIds = response.stream()
+                .map(RestaurantResponse::categoryId)
                 .collect(Collectors.toSet());
 
-        assertThat(response).hasSize(2);
+        assertAll(
+                () -> assertThat(response).hasSize(2),
+                () -> assertThat(responseCategoryIds).containsExactlyInAnyOrder(firstCategory.getId())
+        );
     }
 
     private Restaurant saveRestaurant(String name, Category category) {
         return restaurantRepository.save(Restaurant.builder()
                 .name(name)
                 .categoryId(category.getId())
-                .categoryDetail("")
-                .phone("")
-                .url("")
+                .informationUrl("")
                 .imageUrl("")
                 .longitude(0.0)
                 .latitude(0.0)
