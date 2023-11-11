@@ -1,4 +1,4 @@
-package com.shillyshally.externalapi.acceptance.commons;
+package com.shillyshally.externalapi.acceptance.common;
 
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;

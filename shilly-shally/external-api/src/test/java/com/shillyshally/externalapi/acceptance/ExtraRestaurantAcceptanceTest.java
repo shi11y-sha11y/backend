@@ -3,7 +3,7 @@ package com.shillyshally.externalapi.acceptance;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
-import com.shillyshally.externalapi.acceptance.commons.AcceptanceTest;
+import com.shillyshally.externalapi.acceptance.common.AcceptanceTest;
 import com.shillyshally.externalapi.application.dto.ExtraRestaurantRequest;
 import com.shillyshally.externalapi.application.dto.PagingExtraRestaurantsResponse;
 import io.restassured.RestAssured;
