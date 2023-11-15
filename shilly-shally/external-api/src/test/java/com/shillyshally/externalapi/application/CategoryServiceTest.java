@@ -1,7 +1,7 @@
 package com.shillyshally.externalapi.application;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertAll;
 
 import com.shillyshally.coredomain.category.Category;
 import com.shillyshally.coredomain.category.repository.CategoryRepository;

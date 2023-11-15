@@ -18,7 +18,6 @@ import com.shillyshally.externalapi.application.ExtraRestaurantService;
 import com.shillyshally.externalapi.application.dto.ExtraRestaurantRequest;
 import com.shillyshally.externalapi.application.dto.ExtraRestaurantResponse;
 import com.shillyshally.externalapi.application.dto.PagingExtraRestaurantsResponse;
-import com.shillyshally.externalapi.application.dto.RestaurantResponse;
 import com.shillyshally.externalapi.config.RestDocsConfig;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
@@ -94,9 +93,12 @@ class ExtraRestaurantControllerTest {
                                 parameterWithName("page").description("요청 페이지")
                         ),
                         responseFields(
-                                fieldWithPath("extraRestaurants[].id").type(JsonFieldType.NUMBER).description("추가 요청 식당 ID"),
-                                fieldWithPath("extraRestaurants[].name").type(JsonFieldType.STRING).description("추가 요청 식당 이름"),
-                                fieldWithPath("extraRestaurants[].isRegistered").type(JsonFieldType.BOOLEAN).description("관리자 등록 여부"),
+                                fieldWithPath("extraRestaurants[].id").type(JsonFieldType.NUMBER)
+                                        .description("추가 요청 식당 ID"),
+                                fieldWithPath("extraRestaurants[].name").type(JsonFieldType.STRING)
+                                        .description("추가 요청 식당 이름"),
+                                fieldWithPath("extraRestaurants[].isRegistered").type(JsonFieldType.BOOLEAN)
+                                        .description("관리자 등록 여부"),
                                 fieldWithPath("hasNext").type(JsonFieldType.BOOLEAN).description("다음 페이지 여부")
                         )
                 ));

@@ -1,7 +1,6 @@
 package com.shillyshally.coredomain.extrarestaurant.repository;
 
 import com.shillyshally.coredomain.extrarestaurant.ExtraRestaurant;
-import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.jpa.repository.JpaRepository;

@@ -9,12 +9,7 @@ import static org.springframework.restdocs.payload.PayloadDocumentation.response
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.shillyshally.coredomain.category.repository.CategoryRepository;
-import com.shillyshally.coredomain.extrarestaurant.repository.ExtraRestaurantRepository;
-import com.shillyshally.coredomain.restaurant.repository.RestaurantRepository;
 import com.shillyshally.externalapi.application.CategoryService;
-import com.shillyshally.externalapi.application.ExtraRestaurantService;
-import com.shillyshally.externalapi.application.RestaurantService;
 import com.shillyshally.externalapi.application.dto.CategoryResponse;
 import com.shillyshally.externalapi.config.RestDocsConfig;
 import java.nio.charset.StandardCharsets;
