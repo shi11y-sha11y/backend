@@ -1,0 +1,34 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+= Restaurant
+
+== 전체 카테고리 식당 랜덤 조회
+`GET /api/v1/restaurants/random`
+
+=== Request
+include::{snippets}/get-random-restaurants/http-request.adoc[]
+include::{snippets}/get-random-restaurants/query-parameters.adoc[]
+
+=== Response
+include::{snippets}/get-random-restaurants/http-response.adoc[]
+include::{snippets}/get-random-restaurants/response-fields.adoc[]
+
+
+== 특정 카테고리 식당 랜덤 조회
+`GET /api/v1/restaurants/random`
+
+=== Request
+include::{snippets}/get-random-restaurants-by-category/http-request.adoc[]
+include::{snippets}/get-random-restaurants-by-category/query-parameters.adoc[]
+
+=== Response
+include::{snippets}/get-random-restaurants-by-category/http-response.adoc[]
+include::{snippets}/get-random-restaurants-by-category/response-fields.adoc[]
