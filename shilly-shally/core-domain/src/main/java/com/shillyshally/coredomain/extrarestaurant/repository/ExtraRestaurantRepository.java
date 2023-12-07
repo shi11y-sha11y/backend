@@ -8,4 +8,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ExtraRestaurantRepository extends JpaRepository<ExtraRestaurant, Long> {
 
     Slice<ExtraRestaurant> findAllByOrderByIdDesc(Pageable pageable);
+
+    Slice<ExtraRestaurant> findAllIsRegisteredFalseOrderByIdDesc(Pageable pageable);
 }

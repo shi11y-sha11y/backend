@@ -16,3 +16,5 @@ spring:
         format_sql: true
         show_sql: true
     defer-datasource-initialization: true
+server:
+  port: 8081
