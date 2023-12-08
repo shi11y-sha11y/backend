@@ -21,7 +21,7 @@ public class ExtraRestaurantService {
     private final ExtraRestaurantRepository extraRestaurantRepository;
 
     public PagingExtraRestaurantsResponse getAll(Pageable pageable) {
-        Slice<ExtraRestaurant> extraRestaurants = extraRestaurantRepository.findAllIsRegisteredFalseOrderByIdDesc(pageable);
+        Slice<ExtraRestaurant> extraRestaurants = extraRestaurantRepository.findAllApprovalStatusUncheckedOrderByIdDesc(pageable);
 
         List<ExtraRestaurantResponse> extraRestaurantResponses = extraRestaurants.stream()
                 .map(it -> new ExtraRestaurantResponse(it.getId(), it.getName()))

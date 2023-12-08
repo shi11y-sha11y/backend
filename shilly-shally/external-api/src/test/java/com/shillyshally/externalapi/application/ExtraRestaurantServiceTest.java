@@ -50,10 +50,10 @@ class ExtraRestaurantServiceTest {
                 () -> assertThat(response.extraRestaurants()).hasSize(2),
                 () -> assertThat(response.extraRestaurants().get(0).id()).isEqualTo(알촌2.getId()),
                 () -> assertThat(response.extraRestaurants().get(0).name()).isEqualTo(알촌2.getName()),
-                () -> assertThat(response.extraRestaurants().get(0).isRegistered()).isEqualTo(알촌2.isRegistered()),
+                () -> assertThat(response.extraRestaurants().get(0).approvalStatus()).isEqualTo(알촌2.getApprovalStatus()),
                 () -> assertThat(response.extraRestaurants().get(1).id()).isEqualTo(알촌1.getId()),
                 () -> assertThat(response.extraRestaurants().get(1).name()).isEqualTo(알촌1.getName()),
-                () -> assertThat(response.extraRestaurants().get(1).isRegistered()).isEqualTo(알촌1.isRegistered()),
+                () -> assertThat(response.extraRestaurants().get(1).approvalStatus()).isEqualTo(알촌1.getApprovalStatus()),
                 () -> assertThat(response.hasNext()).isFalse()
         );
     }

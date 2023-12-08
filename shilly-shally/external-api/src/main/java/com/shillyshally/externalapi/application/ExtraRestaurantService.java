@@ -29,7 +29,7 @@ public class ExtraRestaurantService {
         Slice<ExtraRestaurant> extraRestaurants = extraRestaurantRepository.findAllByOrderByIdDesc(pageable);
 
         List<ExtraRestaurantResponse> extraRestaurantResponses = extraRestaurants.stream()
-                .map(it -> new ExtraRestaurantResponse(it.getId(), it.getName(), it.isRegistered()))
+                .map(it -> new ExtraRestaurantResponse(it.getId(), it.getName(), it.getApprovalStatus()))
                 .collect(Collectors.toList());
 
         return new PagingExtraRestaurantsResponse(extraRestaurantResponses, extraRestaurants.hasNext());

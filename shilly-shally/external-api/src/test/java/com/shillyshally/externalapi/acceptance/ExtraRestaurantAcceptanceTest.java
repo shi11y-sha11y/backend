@@ -3,6 +3,7 @@ package com.shillyshally.externalapi.acceptance;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertAll;
 
+import com.shillyshally.coredomain.extrarestaurant.ApprovalStatus;
 import com.shillyshally.externalapi.acceptance.common.AcceptanceTest;
 import com.shillyshally.externalapi.application.dto.ExtraRestaurantRequest;
 import com.shillyshally.externalapi.application.dto.PagingExtraRestaurantsResponse;
@@ -32,7 +33,7 @@ public class ExtraRestaurantAcceptanceTest extends AcceptanceTest {
                 () -> assertThat(response.extraRestaurants()).hasSize(3),
                 () -> assertThat(response.extraRestaurants().get(0).id()).isEqualTo(5),
                 () -> assertThat(response.extraRestaurants().get(0).name()).isEqualTo("알촌5"),
-                () -> assertThat(response.extraRestaurants().get(0).isRegistered()).isFalse(),
+                () -> assertThat(response.extraRestaurants().get(0).approvalStatus()).isEqualTo(ApprovalStatus.UNCHECKED),
                 () -> assertThat(response.hasNext()).isTrue()
         );
     }

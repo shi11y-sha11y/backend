@@ -14,6 +14,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.shillyshally.coredomain.extrarestaurant.ApprovalStatus;
 import com.shillyshally.externalapi.application.ExtraRestaurantService;
 import com.shillyshally.externalapi.application.dto.ExtraRestaurantRequest;
 import com.shillyshally.externalapi.application.dto.ExtraRestaurantResponse;
@@ -70,9 +71,9 @@ class ExtraRestaurantControllerTest {
     @Test
     void 식당_추가_요청_리스트_조회_API_문서화() throws Exception {
         List<ExtraRestaurantResponse> extraRestaurantResponses = List.of(
-                new ExtraRestaurantResponse(1L, "알촌", false),
-                new ExtraRestaurantResponse(2L, "마라미방", false),
-                new ExtraRestaurantResponse(3L, "도스마스", false)
+                new ExtraRestaurantResponse(1L, "알촌", ApprovalStatus.UNCHECKED),
+                new ExtraRestaurantResponse(2L, "마라미방", ApprovalStatus.UNCHECKED),
+                new ExtraRestaurantResponse(3L, "도스마스", ApprovalStatus.UNCHECKED)
         );
         PagingExtraRestaurantsResponse response = new PagingExtraRestaurantsResponse(extraRestaurantResponses, false);
 
@@ -97,8 +98,8 @@ class ExtraRestaurantControllerTest {
                                         .description("추가 요청 식당 ID"),
                                 fieldWithPath("extraRestaurants[].name").type(JsonFieldType.STRING)
                                         .description("추가 요청 식당 이름"),
-                                fieldWithPath("extraRestaurants[].isRegistered").type(JsonFieldType.BOOLEAN)
-                                        .description("관리자 등록 여부"),
+                                fieldWithPath("extraRestaurants[].approvalStatus").type(JsonFieldType.STRING)
+                                        .description("관리자의 등록 승인 여부"),
                                 fieldWithPath("hasNext").type(JsonFieldType.BOOLEAN).description("다음 페이지 여부")
                         )
                 ));

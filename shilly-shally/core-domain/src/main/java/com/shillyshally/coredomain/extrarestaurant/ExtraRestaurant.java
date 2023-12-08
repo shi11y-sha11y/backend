@@ -1,10 +1,7 @@
 package com.shillyshally.coredomain.extrarestaurant;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -22,9 +19,10 @@ public class ExtraRestaurant {
 
     private String name;
 
-    private boolean isRegistered;
+    @Enumerated(EnumType.STRING)
+    private ApprovalStatus approvalStatus;
 
     public ExtraRestaurant(String name) {
-        this(null, name, false);
+        this(null, name, ApprovalStatus.UNCHECKED);
     }
 }
