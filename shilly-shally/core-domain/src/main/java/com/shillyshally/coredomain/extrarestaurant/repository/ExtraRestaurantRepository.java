@@ -11,6 +11,6 @@ public interface ExtraRestaurantRepository extends JpaRepository<ExtraRestaurant
     Slice<ExtraRestaurant> findAllByOrderByIdDesc(Pageable pageable);
 
 
-    @Query(value = "SELECT * FROM ExtraRestaurant WHERE ApprovalStatus = 'UNCHECKED' ORDER BY ID DESC", nativeQuery = true)
+    @Query(value = "SELECT * FROM EXTRA_RESTAURANT WHERE APPROVAL_STATUS = 'UNCHECKED' ORDER BY ID DESC", nativeQuery = true)
     Slice<ExtraRestaurant> findAllApprovalStatusUncheckedOrderByIdDesc(Pageable pageable);
 }
