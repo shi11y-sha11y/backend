@@ -1,4 +1,4 @@
-package com.shillyshally.internalapi.application.domain;
+package com.shillyshally.internalapi.application.dto;
 
 import java.util.List;
 

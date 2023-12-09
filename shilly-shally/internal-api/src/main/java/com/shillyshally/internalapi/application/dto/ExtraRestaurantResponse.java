@@ -1,4 +1,4 @@
-package com.shillyshally.internalapi.application.domain;
+package com.shillyshally.internalapi.application.dto;
 
 public record ExtraRestaurantResponse(
         long id,
