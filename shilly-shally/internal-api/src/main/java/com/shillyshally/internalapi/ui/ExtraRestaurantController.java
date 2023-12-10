@@ -7,10 +7,7 @@ import com.shillyshally.internalapi.application.dto.DefaultResultResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -26,8 +23,8 @@ public class ExtraRestaurantController {
         return ResponseEntity.ok(extraRestaurantService.getAll(pageable));
     }
 
-    @PostMapping
-    public ResponseEntity<DefaultResultResponse> approve(List<RestaurantApprovalRequest> restaurantApprovalRequests){
+    @PutMapping
+    public ResponseEntity<DefaultResultResponse> approve(@RequestBody List<RestaurantApprovalRequest> restaurantApprovalRequests){
         return ResponseEntity.ok(extraRestaurantService.approve(restaurantApprovalRequests));
     }
 }
