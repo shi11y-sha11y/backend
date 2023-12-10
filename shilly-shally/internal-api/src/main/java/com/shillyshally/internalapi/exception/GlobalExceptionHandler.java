@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<ErrorResponse> applicationException(RuntimeException e) {
-        log.info(String.format("Runtime Exception : %s", e));
-        return ResponseEntity.badRequest().body(new ErrorResponse(e.getMessage()));
+    @ExceptionHandler(ApplicationException.class)
+    public ResponseEntity<ErrorResponse> handleApplicationException(ApplicationException e) {
+        log.info(String.format("Application Exception : %s", e));
+        return ResponseEntity.status(e.getErrorType().getHttpStatus()).body(new ErrorResponse(e.getErrorType()));
     }
 
     @ExceptionHandler(Exception.class)
@@ -22,6 +22,6 @@ public class GlobalExceptionHandler {
         StackTraceElement[] stackTrace = e.getStackTrace();
         log.error(String.format("UnHandled Exception : %s\n" + "%s:%s:%s", e, stackTrace[0].getClassName(),
                 stackTrace[0].getMethodName(), stackTrace[0].getLineNumber()), e);
-        return ResponseEntity.internalServerError().body(new ErrorResponse("internal server error"));
+        return ResponseEntity.internalServerError().body(new ErrorResponse());
     }
 }
