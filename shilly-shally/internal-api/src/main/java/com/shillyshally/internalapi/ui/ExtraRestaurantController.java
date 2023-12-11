@@ -19,8 +19,8 @@ public class ExtraRestaurantController {
     private final ExtraRestaurantService extraRestaurantService;
 
     @GetMapping
-    public ResponseEntity<PagingExtraRestaurantsResponse> getAll(Pageable pageable) {
-        return ResponseEntity.ok(extraRestaurantService.getAll(pageable));
+    public ResponseEntity<PagingExtraRestaurantsResponse> getAllUnchecked(Pageable pageable) {
+        return ResponseEntity.ok(extraRestaurantService.getAllUnchecked(pageable));
     }
 
     @PutMapping

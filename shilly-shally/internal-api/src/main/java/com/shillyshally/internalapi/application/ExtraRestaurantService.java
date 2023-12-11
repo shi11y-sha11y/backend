@@ -27,7 +27,7 @@ public class ExtraRestaurantService {
     private final ExtraRestaurantRepository extraRestaurantRepository;
     private final RestaurantRepository restaurantRepository;
 
-    public PagingExtraRestaurantsResponse getAll(Pageable pageable) {
+    public PagingExtraRestaurantsResponse getAllUnchecked(Pageable pageable) {
         Slice<ExtraRestaurant> extraRestaurants = extraRestaurantRepository.findAllApprovalStatusUncheckedOrderByIdDesc(pageable);
 
         List<ExtraRestaurantResponse> extraRestaurantResponses = extraRestaurants.stream()
