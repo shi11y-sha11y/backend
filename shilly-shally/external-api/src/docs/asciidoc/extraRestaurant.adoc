@@ -1,0 +1,33 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+= Restaurant
+
+== 식당 요청 생성
+`POST /api/v1/extraRestaurants`
+
+=== Request
+include::{snippets}/create-extraRestaurants/http-request.adoc[]
+include::{snippets}/create-extraRestaurants/request-fields.adoc[]
+
+=== Response
+include::{snippets}/create-extraRestaurants/http-response.adoc[]
+
+
+== 식당 요청 조회
+`GET /api/v1/extraRestaurants`
+
+=== Request
+include::{snippets}/get-extraRestaurants/http-request.adoc[]
+include::{snippets}/get-extraRestaurants/query-parameters.adoc[]
+
+=== Response
+include::{snippets}/get-extraRestaurants/http-response.adoc[]
+include::{snippets}/get-extraRestaurants/response-fields.adoc[]

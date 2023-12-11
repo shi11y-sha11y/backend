@@ -1,0 +1,21 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+= Category
+
+== 카테고리 조회
+`GET /api/v1/categories`
+
+=== Request
+include::{snippets}/category-get-all/http-request.adoc[]
+
+=== Response
+include::{snippets}/category-get-all/http-response.adoc[]
+include::{snippets}/category-get-all/response-fields.adoc[]
