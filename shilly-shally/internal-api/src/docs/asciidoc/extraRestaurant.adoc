@@ -1,0 +1,33 @@
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+ifndef::snippets[]
+:snippets: ./build/generated-snippets
+endif::[]
+
+= Restaurant
+
+== 승인 대기중인 식당 요청 조회
+`POST /api/v1/extraRestaurants`
+
+=== Request
+include::{snippets}/get-unchecked-extraRestaurants/http-request.adoc[]
+
+=== Response
+include::{snippets}/get-unchecked-extraRestaurants/http-response.adoc[]
+include::{snippets}/get-unchecked-extraRestaurants/response-fields.adoc[]
+
+
+== 식당 요청 승인
+`PUT /api/v1/extraRestaurants`
+
+=== Request
+include::{snippets}/approve-extraRestaurants/http-request.adoc[]
+include::{snippets}/approve-extraRestaurants/request-fields.adoc[]
+
+=== Response
+include::{snippets}/approve-extraRestaurants/http-response.adoc[]
+include::{snippets}/approve-extraRestaurants/response-fields.adoc[]
